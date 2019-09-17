@@ -1,17 +1,15 @@
 <div class="base-home">
 	<div class="titulo_p"><strong></strong><p><i class="icone-l"></i><b>upload simples</b></p></div>
 	<div class="base-formularios">
-        <form action="" method="post">
+        <form action="op/op_upload_simples.php" method="post" enctype="multipart/form-data">
 			
 			<div class="file">
 				<span>inserir </span>
 				<label for="file">Escolher arquivo</label>
-				<input type="file" name="txt_nome" value="" id="file">
+				<input type="file" name="arquivo">
 			</div>	
-			<div>				
-                <input type="hidden" name="id" value="">							
-                <input type="hidden" name="acao" value="Cadastrar">										
-                <input type="submit" name="logar" id="logar" value="Cadastrar" class="btn">
+			<div>													
+                <input type="submit" name="logar" value="Enviar" class="btn">
 			</div>
                         
                         
