@@ -1,7 +1,7 @@
 <?php 
 
-require '../config/config_upload.php';
-
+    require '../config/config_upload.php';
+    set_time_limit(0);
     $nome_arquivo = $_FILES['arquivo']['name'];
     $tamanho_arquivo = $_FILES['arquivo']['size'];
     $arquivo_temporario = $_FILES['arquivo']['tmp_name'];
@@ -10,12 +10,13 @@ require '../config/config_upload.php';
 
     if(!empty($nome_arquivo)) {
         $ext = strrchr($nome_arquivo, '.');
-        $nome_final = $nome_arquivo;
-        if($config_upload['renomeia']) {
-            $nome_final = md5(time()) .$ext;
-        }else{
-            $nome_final = $nome_arquivo;
+        $nome_final = ($config_upload['renomeia']) ? md5(time()) .$ext : $nome_arquivo;
+        $caminho = $config_upload['caminho_absoluto'] .$nome_final;
+
+        if(($config_upload['verifica_tamanho']) && ($tamanho_arquivo > $config_upload['tamanho'])) {
+            die('O arquivo é maior que o permitido');
         }
+
     }else {
         echo "Está vazio";
     }
