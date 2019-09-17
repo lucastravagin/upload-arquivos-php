@@ -17,6 +17,10 @@
             die('O arquivo é maior que o permitido');
         }
 
+        if(($config_upload['verifica_extensao']) && (!in_array($ext, $config_upload['extensoes']))) {
+            die('O arquivo não possui uma extensão válida');
+        }
+
     }else {
         echo "Está vazio";
     }
