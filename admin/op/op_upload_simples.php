@@ -21,6 +21,12 @@
             die('O arquivo não possui uma extensão válida');
         }
 
+        if(move_uploaded_file($arquivo_temporario, $caminho)) {
+            echo  "Arquivo enviado com sucesso";
+        }else{
+            echo "Erro ao fazer Upload";
+        }
+
     }else {
         echo "Está vazio";
     }
